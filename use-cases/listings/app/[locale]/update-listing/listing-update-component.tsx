@@ -6,7 +6,7 @@ import {
   PUT_LISTINGS_ITEM_API_NAME,
   UPDATE_LISTING_USE_CASE,
 } from "@/app/constants/global";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Link } from "@mui/material";
 import { DividerComponent } from "@/app/components/divider-component";
 import AlertComponent from "@/app/components/alert";
 import { useTranslations } from "use-intl";
@@ -63,9 +63,62 @@ function RenderComponents({
       </Box>
     );
   } else {
+    // Debug logs to inspect the listing shape and attributes available
+    try {
+      // Full listing object
+      console.log("[UpdateListing] currentListing:", currentListing);
+      // Common fields
+      console.log(
+        "[UpdateListing] productType:",
+        (currentListing as any)?.productType,
+      );
+      console.log(
+        "[UpdateListing] attributes:",
+        (currentListing as any)?.attributes,
+      );
+      console.log("[UpdateListing] issues:", (currentListing as any)?.issues);
+      console.log("[UpdateListing] summary:", (currentListing as any)?.summary);
+      console.log(
+        "[UpdateListing] identifiers:",
+        (currentListing as any)?.identifiers,
+      );
+      // Potential ASIN locations
+      const debugAsinCandidates = {
+        identifiersIndex0Asin: (currentListing as any)?.identifiers?.[0]?.asin,
+        summaryAsin: (currentListing as any)?.summary?.asin,
+        rootAsin: (currentListing as any)?.asin,
+      };
+      console.log("[UpdateListing] ASIN candidates:", debugAsinCandidates);
+    } catch (e) {
+      console.warn("[UpdateListing] Failed to log listing details:", e);
+    }
+
+    // Try to extract ASIN from the loaded listing, if present
+    const asin =
+      (currentListing as any)?.identifiers?.[0]?.asin ||
+      (currentListing as any)?.summary?.asin ||
+      (currentListing as any)?.asin;
+
+    const amazonHref = asin
+      ? `https://www.amazon.com/dp/${encodeURIComponent(asin)}`
+      : `https://www.amazon.com/s?k=${encodeURIComponent(sku)}`;
+
     return (
       <Grid item>
         <DividerComponent />
+        {/* Link to open the Amazon page for the loaded ASIN (fallback to SKU search) */}
+        {(asin || sku) && (
+          <Box sx={{ margin: "0.5rem 0" }}>
+            <Link
+              href={amazonHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="hover"
+            >
+              Open on Amazon
+            </Link>
+          </Box>
+        )}
         {currentListing.productType ? (
           <AttributesEditorWithIssues
             sku={sku}

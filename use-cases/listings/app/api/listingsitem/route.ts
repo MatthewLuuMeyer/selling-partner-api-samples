@@ -295,7 +295,8 @@ function constructGetListingsResponse(originalResponse: any, locale: string) {
   const summary = itemData.summaries && itemData.summaries[0];
   return {
     attributes: itemData.attributes,
-    issues: itemData.issues,
+      issues: itemData.issues,
+      summary,
     ...(summary && {
       productType: summary.productType,
     }),

@@ -26,7 +26,8 @@ export interface ListingSubmissionResult {
 export interface Listing {
   attributes: object;
   issues?: Issue[];
-  productType?: string;
+    productType?: string;
+    summary?: any;
 }
 
 /**
