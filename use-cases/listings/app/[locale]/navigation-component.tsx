@@ -33,6 +33,8 @@ import {
   SETTINGS_PAGE_PATH,
   UPDATE_LISTING_PAGE_ID,
   UPDATE_LISTING_PAGE_PATH,
+  UPLOAD_PRICE_DATA_PAGE_ID,
+  UPLOAD_PRICE_DATA_PAGE_PATH,
 } from "@/app/constants/global";
 import TooltipWrapper from "../components/tooltip-wrapper";
 
@@ -129,6 +131,14 @@ export default function NavigationComponent() {
       href: UPDATE_LISTING_PAGE_PATH,
       disabledResult: getDisabled(
         UPDATE_LISTING_PAGE_ID,
+        settingsContext.settingsState.settings,
+      ),
+    },
+    {
+      id: UPLOAD_PRICE_DATA_PAGE_ID,
+      href: UPLOAD_PRICE_DATA_PAGE_PATH,
+      disabledResult: getDisabled(
+        UPLOAD_PRICE_DATA_PAGE_ID,
         settingsContext.settingsState.settings,
       ),
     },

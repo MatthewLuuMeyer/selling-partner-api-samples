@@ -11,6 +11,7 @@ import {
   DELETE_LISTING_PAGE_PATH,
   NOTIFICATIONS_PAGE_PATH,
   UPDATE_LISTING_PAGE_PATH,
+  UPLOAD_PRICE_DATA_PAGE_PATH,
 } from "@/app/constants/global";
 import { useTranslations } from "use-intl";
 
@@ -33,6 +34,7 @@ export default function Home() {
       <DeleteListing />
       <Notifications />
       <UpdateListing />
+      <UploadPriceData />
       <AttributesEditor />
     </Container>
   );
@@ -269,6 +271,26 @@ function UpdateListing() {
             {commonTranslations("debugConsoleShortTitle")}
           </NextLink>
           {`.`}
+        </>
+      }
+    />
+  );
+}
+
+function UploadPriceData() {
+  const commonTranslations = useTranslations("Home.Common");
+  const useCaseTranslations = useTranslations("Navigation");
+  const sectionTranslations = useTranslations("Home.UploadPriceData");
+  return (
+    <Section
+      id={getIdFromPath(UPLOAD_PRICE_DATA_PAGE_PATH)}
+      title={sectionTranslations("title")}
+      content={
+        <>
+          {sectionTranslations("content")}
+          {commonTranslations("moreInfo", {
+            useCase: useCaseTranslations("uploadPriceData"),
+          })}
         </>
       }
     />

@@ -13,7 +13,7 @@
       "content1": "Welcome to the SellingPartnerAPIListingSampleApplication. This app demonstrates how to use some of the APIs listed in ",
       "workflowGuideText": "Building Listings Management Workflows Guide",
       "workflowGuideURL": "https://developer-docs.amazon.com/sp-api/docs/building-listings-management-workflows-guide",
-      "content2": " to construct some common listing management workflows using a simple UI. The Selling Partner API (SP-API) is a REST-based API that helps Amazon selling partners programmatically access their data on listings, orders, shipments, payments, and much more.  The Listings APIs are a subset of the SP-API which allows the users to build best-in-class listings creation and management workflows. This app shows how to develop a selling partner app for 6 common listing use cases."
+      "content2": " to construct some common listing management workflows using a simple UI. The Selling Partner API (SP-API) is a REST-based API that helps Amazon selling partners programmatically access their data on listings, orders, shipments, payments, and much more. The Listings APIs are a subset of the SP-API which allows the users to build best-in-class listings creation and management workflows. This app shows how to develop a selling partner app for 6 common listing use cases."
     },
     "Navigate": {
       "title": "How to Navigate",
@@ -25,7 +25,7 @@
     },
     "DebugConsole": {
       "title": "How to use Debug Console",
-      "content": "Every workflow has a debug console button at the bottom of the page.  Click the debug console button to open a full screen window which contains the details of all Selling Partner API calls invoked so far for that workflow. Use the clear button on the right side of the full screen window to clear the debug content if there is too much content. To minimise the full screen window, click the close icon on the left of the window. To make the app more responsive, the debug content is erased up on navigation to a different page."
+      "content": "Every workflow has a debug console button at the bottom of the page. Click the debug console button to open a full screen window which contains the details of all Selling Partner API calls invoked so far for that workflow. Use the clear button on the right side of the full screen window to clear the debug content if there is too much content. To minimise the full screen window, click the close icon on the left of the window. To make the app more responsive, the debug content is erased up on navigation to a different page."
     },
     "BulkListing": {
       "title": "Bulk Listing",
@@ -40,7 +40,7 @@
     },
     "CreateOffer": {
       "title": "Create Offer",
-      "content": "The Create Offer page can be used to create a new offer on an existing listing in Amazon. Navigate to Create Offer page via the navigation tab. You can search for existing products in Amazon by entering the appropriate identifiers and selecting the identifier type from the dropdown or using keywords. You can only search either identifier or keyword, not both. Click on Search Products button to retrieve a limited set of existing products matching the query. Click on View Conditions dropdown to view the condition types under  which you are allowed to list the product. If there are any valid condition types then List This Product button will be enabled. Click the button to enter SKU for your listing. Upon entering the SKU ",
+      "content": "The Create Offer page can be used to create a new offer on an existing listing in Amazon. Navigate to Create Offer page via the navigation tab. You can search for existing products in Amazon by entering the appropriate identifiers and selecting the identifier type from the dropdown or using keywords. You can only search either identifier or keyword, not both. Click on Search Products button to retrieve a limited set of existing products matching the query. Click on View Conditions dropdown to view the condition types under which you are allowed to list the product. If there are any valid condition types then List This Product button will be enabled. Click the button to enter SKU for your listing. Upon entering the SKU ",
       "workflowGuideURL": "https://developer-docs.amazon.com/sp-api/docs/building-listings-management-workflows-guide#list-an-offer-for-an-item-that-already-exists-in-the-amazon-catalog"
     },
     "DeleteListing": {
@@ -62,7 +62,11 @@
     },
     "AttributesEditor": {
       "title": "Listing Attributes Editor",
-      "content": "The attributes editor form renders the applicable attributes of the product depending on the Product Type. Once the form has been filled  click on Run Schema Validations button to validate the entered values against the product type definitions schema. If there are any errors a Schema Validation Errors dialog will be displayed which explains the errors. Once the content has been validated you can either submit the listing to Amazon by clicking the Submit button. Upon successful acceptance of your contribution a popup will be displayed which will contain your submission id. Or you can convert the listing to a JSON feed by clicking Convert to JSON Listings Feed button. "
+      "content": "The attributes editor form renders the applicable attributes of the product depending on the Product Type. Once the form has been filled click on Run Schema Validations button to validate the entered values against the product type definitions schema. If there are any errors a Schema Validation Errors dialog will be displayed which explains the errors. Once the content has been validated you can either submit the listing to Amazon by clicking the Submit button. Upon successful acceptance of your contribution a popup will be displayed which will contain your submission id. Or you can convert the listing to a JSON feed by clicking Convert to JSON Listings Feed button. "
+    },
+    "UploadPriceData": {
+      "title": "Upload Pricing Data",
+      "content": "Use the Upload Pricing Data page to upload pricing updates via an Excel file (.xlsx or .xls)."
     }
   },
   "CreateOffer": {
@@ -166,7 +170,9 @@
     "notificationsHelpText": "Workflow to receive notifications through Amazon EventBridge. See https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide#notification-workflows to learn more",
     "updateListing": "Update Listing",
     "updateListingHelpText": "Workflow to update an existing listings item. Refer to https://developer-docs.amazon.com/sp-api/docs/building-listings-management-workflows-guide#updating-a-listings-item to learn more",
-    "vendorCodesCannotCreateOffers": "Vendor Codes cannot create offers at this time"
+    "vendorCodesCannotCreateOffers": "Vendor Codes cannot create offers at this time",
+    "uploadPriceData": "Upload Pricing Data",
+    "uploadPriceDataHelpText": "Workflow to upload pricing data via an Excel file."
   },
   "AlertDialog": {
     "close": "Close"
@@ -272,7 +278,7 @@
     "invalidMessage": "Can not generate the Json Listing Feed. Found empty attributes or patches."
   },
   "DebugConsole": {
-    "buttonName": "Debug Console",
+"buttonName": "Debug Console",
     "buttonHelpText": "Click the button to view the Selling Partner API requests and responses",
     "clearButtonName": "Clear",
     "clearButtonNameHelpText": "Click the button to clear the contents",

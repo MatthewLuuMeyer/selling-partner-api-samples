@@ -556,3 +556,7 @@ export const PARENT_JSON_PROPERTY_VALUE = {
 export const CHILD_JSON_PROPERTY_VALUE = {
   value: "child",
 };
+
+// New Upload Price Data page constants
+export const UPLOAD_PRICE_DATA_PAGE_ID = "uploadPriceData";
+export const UPLOAD_PRICE_DATA_PAGE_PATH = "/upload-price-data";

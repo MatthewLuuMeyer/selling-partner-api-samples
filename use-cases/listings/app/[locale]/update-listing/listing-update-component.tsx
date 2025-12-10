@@ -63,36 +63,6 @@ function RenderComponents({
       </Box>
     );
   } else {
-    // Debug logs to inspect the listing shape and attributes available
-    try {
-      // Full listing object
-      console.log("[UpdateListing] currentListing:", currentListing);
-      // Common fields
-      console.log(
-        "[UpdateListing] productType:",
-        (currentListing as any)?.productType,
-      );
-      console.log(
-        "[UpdateListing] attributes:",
-        (currentListing as any)?.attributes,
-      );
-      console.log("[UpdateListing] issues:", (currentListing as any)?.issues);
-      console.log("[UpdateListing] summary:", (currentListing as any)?.summary);
-      console.log(
-        "[UpdateListing] identifiers:",
-        (currentListing as any)?.identifiers,
-      );
-      // Potential ASIN locations
-      const debugAsinCandidates = {
-        identifiersIndex0Asin: (currentListing as any)?.identifiers?.[0]?.asin,
-        summaryAsin: (currentListing as any)?.summary?.asin,
-        rootAsin: (currentListing as any)?.asin,
-      };
-      console.log("[UpdateListing] ASIN candidates:", debugAsinCandidates);
-    } catch (e) {
-      console.warn("[UpdateListing] Failed to log listing details:", e);
-    }
-
     // Try to extract ASIN from the loaded listing, if present
     const asin =
       (currentListing as any)?.identifiers?.[0]?.asin ||
